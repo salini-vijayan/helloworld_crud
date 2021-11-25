@@ -1,11 +1,28 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic
+      Tasks
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <h2>Hello World!</h2>
+  <ion-item>
+		<ion-input #taskInput type="text" placeholder="Enter task" [(ngModel)]="taskName"></ion-input>
+		<div class="item-note" item-end>
+			<button ion-button (click)="addTasks()" ><ion-icon name="add"></ion-icon></button>
+		</div>
+	</ion-item>
+  <div padding>
+    <ion-list>
+      <ion-item *ngFor="let task of tasksLists; let i=index"> {{task}}
+        <div class="item-note" item-end>
+          <button ion-button clear (click)="updateTasks(i)" ><ion-icon name="create"></ion-icon></button>
+          <button ion-button clear (click)="deleteTasks(i)" ><ion-icon name="trash"></ion-icon></button>
+        </div>
+      </ion-item>
+      
+    </ion-list>
+  </div>
 </ion-content>
