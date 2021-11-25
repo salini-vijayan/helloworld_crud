@@ -12,12 +12,19 @@ export class HomePage {
 
   constructor(public alertCtrl : AlertController) {}
 
+  ionViewDidLoad(){
+    setTimeout(() => {
+        this.input.setFocus();
+    },350);
+  }
+
   addTasks(){
     if(this.taskName.length>0){
       let task = this.taskName;
       this.tasksLists.push(task);
       this.taskName = '';
     }
+    this.input.setFocus();
   }
 
   deleteTasks(item_index){
